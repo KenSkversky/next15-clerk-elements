@@ -1,23 +1,34 @@
-import { currentUser } from '@clerk/nextjs/server'
+import { auth } from "@clerk/nextjs/server";
 
-export default async function Home() {
-  const user = await currentUser()
-  const ele = user?.firstName
-  console.log("First Name: ", ele)
+import Link from "next/link";
 
-  // const em = await <auth className="user"></auth>
-  // if (!userId) {
-  //   console.log("UNAUTH")
+import { redirect } from "next/navigation";
 
-  // } else {
-    // console.log("AUTHENTICATED")
-  
+import { Button } from "@/components/ui/button";
+
+const HomePage = async () => {
+  // Check for User
+  const { userId } = await auth();
+
+  if (userId) redirect("/dashboard");
 
   return (
-    <div className="h-screen flex items-center justify-center text-3xl font-semibold">
-      
-  
-      Hello {ele}
-    </div>
+    <>
+      <div className="flex justify-end  mt-10 mr-10 gap-2">
+        <Link href="/sign-in">
+          <Button>Sign In</Button>
+        </Link>
+
+        <Link href="/sign-up">
+          <Button>Sign Up</Button>
+        </Link>
+      </div>
+      <div className="flex flex-col gap-24 text-center text-2xl font-semibold">
+        Home
+        <div className="text-xl font-medium"></div>
+      </div>
+    </>
   );
-}
+};
+
+export default HomePage;

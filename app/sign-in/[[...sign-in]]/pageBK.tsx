@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import * as Clerk from '@clerk/elements/common'
-import * as SignIn from '@clerk/elements/sign-in'
+import * as Clerk from "@clerk/elements/common";
+import * as SignIn from "@clerk/elements/sign-in";
 
 export default function SignInPage() {
   return (
@@ -19,7 +19,14 @@ export default function SignInPage() {
               className="mx-auto size-10 text-zinc-950"
               aria-hidden
             >
-              <mask id="a" width="40" height="40" x="0" y="0" maskUnits="userSpaceOnUse">
+              <mask
+                id="a"
+                width="40"
+                height="40"
+                x="0"
+                y="0"
+                maskUnits="userSpaceOnUse"
+              >
                 <circle cx="20" cy="20" r="20" fill="#D9D9D9" />
               </mask>
               <g fill="currentColor" mask="url(#a)">
@@ -34,7 +41,9 @@ export default function SignInPage() {
           <Clerk.GlobalError className="block text-sm text-red-400" />
           <div className="space-y-4">
             <Clerk.Field name="emailAddress" className="space-y-2">
-              <Clerk.Label className="text-sm font-medium text-zinc-950">Email</Clerk.Label>
+              <Clerk.Label className="text-sm font-medium text-zinc-950">
+                Email
+              </Clerk.Label>
               <Clerk.Input
                 type="text"
                 required
@@ -43,7 +52,9 @@ export default function SignInPage() {
               <Clerk.FieldError className="block text-sm text-red-400" />
             </Clerk.Field>
             <Clerk.Field name="password" className="space-y-2">
-              <Clerk.Label className="text-sm  font-medium text-zinc-950">Password</Clerk.Label>
+              <Clerk.Label className="text-sm  font-medium text-zinc-950">
+                Password
+              </Clerk.Label>
               <Clerk.Input
                 type="password"
                 required
@@ -59,7 +70,7 @@ export default function SignInPage() {
             Sign In
           </SignIn.Action>
           <p className="text-center text-sm text-zinc-500">
-            No account?{' '}
+            No account?{" "}
             <Clerk.Link
               navigate="sign-up"
               className="font-medium text-zinc-950 decoration-zinc-950/20 underline-offset-4 outline-none hover:text-zinc-700 hover:underline focus-visible:underline"
@@ -70,5 +81,5 @@ export default function SignInPage() {
         </SignIn.Step>
       </SignIn.Root>
     </div>
-  )
+  );
 }

@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import * as Clerk from '@clerk/elements/common'
-import * as SignIn from '@clerk/elements/sign-in'
+import * as Clerk from "@clerk/elements/common";
+import * as SignIn from "@clerk/elements/sign-in";
 
 export default function SignInPage() {
   return (
@@ -19,7 +19,14 @@ export default function SignInPage() {
               className="mx-auto size-10 text-zinc-950"
               aria-hidden
             >
-              <mask id="a" width="40" height="40" x="0" y="0" maskUnits="userSpaceOnUse">
+              <mask
+                id="a"
+                width="40"
+                height="40"
+                x="0"
+                y="0"
+                maskUnits="userSpaceOnUse"
+              >
                 <circle cx="20" cy="20" r="20" fill="#D9D9D9" />
               </mask>
               <g fill="currentColor" mask="url(#a)">
@@ -32,7 +39,7 @@ export default function SignInPage() {
             </h1>
           </header>
 
-         <div className="space-y-8">
+          <div className="space-y-8">
             <Clerk.Connection
               name="google"
               className="flex w-full items-center justify-center gap-x-3 rounded-md bg-neutral-700 px-3.5 py-1.5 text-sm font-medium text-white shadow-[0_1px_0_0_theme(colors.white/5%)_inset,0_0_0_1px_theme(colors.white/2%)_inset] outline-none hover:bg-gradient-to-b hover:from-white/5 hover:to-white/5 focus-visible:outline-[1.5px] focus-visible:outline-offset-2 focus-visible:outline-white active:bg-gradient-to-b active:from-black/20 active:to-black/20 active:text-white/70"
@@ -61,18 +68,17 @@ export default function SignInPage() {
                 />
                 <path d="M1 1h22v22H1z" fill="none" />
               </svg>
-              
               Sign In with Google
-              
             </Clerk.Connection>
           </div>
-          <h1 className='text-center font-normal text-base'>-OR-</h1>
-
+          <h1 className="text-center font-normal text-base">-OR-</h1>
 
           <Clerk.GlobalError className="block text-sm text-red-400" />
           <div className="space-y-0">
             <Clerk.Field name="identifier" className="space-y-2">
-              <Clerk.Label className="text-sm font-medium text-zinc-950">Email</Clerk.Label>
+              <Clerk.Label className="text-sm font-medium text-zinc-950">
+                Email
+              </Clerk.Label>
               <Clerk.Input
                 type="text"
                 required
@@ -81,7 +87,9 @@ export default function SignInPage() {
               <Clerk.FieldError className="block text-sm text-red-400" />
             </Clerk.Field>
             <Clerk.Field name="password" className="space-y-2">
-              <Clerk.Label className="text-sm  font-medium text-zinc-950">Password</Clerk.Label>
+              <Clerk.Label className="text-sm  font-medium text-zinc-950">
+                Password
+              </Clerk.Label>
               <Clerk.Input
                 type="password"
                 required
@@ -97,7 +105,7 @@ export default function SignInPage() {
             Sign In with Email
           </SignIn.Action>
           <p className="text-center text-sm text-zinc-500">
-            No account?{' '}
+            No account?{" "}
             <Clerk.Link
               navigate="sign-up"
               className="font-medium text-zinc-950 decoration-zinc-950/20 underline-offset-4 outline-none hover:text-zinc-700 hover:underline focus-visible:underline"
@@ -108,5 +116,5 @@ export default function SignInPage() {
         </SignIn.Step>
       </SignIn.Root>
     </div>
-  )
+  );
 }
